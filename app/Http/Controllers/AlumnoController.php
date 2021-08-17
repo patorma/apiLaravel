@@ -50,6 +50,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
+        //  findOrfail: Toma una identificación y devuelve un solo modelo.
         $empresa = Empresa::findOrfail($alumno->id);
         return response()->json([
             "alumno" => $alumno,

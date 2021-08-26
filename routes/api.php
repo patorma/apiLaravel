@@ -22,7 +22,9 @@ use App\Http\Controllers\EmpresaController;
 //     return $request->user();
 // });
 
-
+// se genera una ruta
+Route::post('/login','UserController@login');
+// con apiResource ve todos los metodos del controlador index,show , etc..
 Route::group(['middleware' => 'auth:api'],function(){
     Route::apiResource('/precios',PrecioController::class);
     Route::apiResource('/empresas',EmpresaController::class);

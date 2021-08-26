@@ -21,7 +21,11 @@ use App\Http\Controllers\EmpresaController;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::apiResource('/precios',PrecioController::class);
-Route::apiResource('/empresas',EmpresaController::class);
-Route::apiResource('/alumnos',AlumnoController::class);
-Route::apiResource('/pagos',PagoController::class);
+
+
+Route::group(['middleware' => 'auth:api'],function(){
+    Route::apiResource('/precios',PrecioController::class);
+    Route::apiResource('/empresas',EmpresaController::class);
+    Route::apiResource('/alumnos',AlumnoController::class);
+    Route::apiResource('/pagos',PagoController::class);
+});
